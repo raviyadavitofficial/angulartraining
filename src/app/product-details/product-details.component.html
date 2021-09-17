@@ -1,0 +1,87 @@
+<div colorText myColor="yellow">
+    <h3 *ngIf="appStatus">{{appTitle}} to product details</h3>
+    <h3>This will always display</h3>
+    <!-- {{empList[0] | json}} -->
+</div>
+
+<div *ngIf="appStatus">
+    <div *ngFor="let emp of empList; let i = index">
+        <ul style="list-style-type:none;">
+            <li [ngClass]="['text-success', 'text-center']">{{emp.ID}} - {{emp.Name}} ({{emp.country}})</li>
+        </ul>
+    </div>
+</div>
+
+
+<div *ngIf="appStatus">
+    <h4>NgClass Example</h4>
+    <div *ngFor="let emp of empList; let i = index">
+        <ul style="list-style-type:none;">
+            <li [ngClass]="{
+                'text-success text-center':emp.country==='India',
+                'text-primary text-center':emp.country==='UK',
+                'text-danger text-center':emp.country==='Germany'
+            }">{{emp.ID}} - {{emp.Name}} ({{emp.country}})</li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <h4>NgStyle Example</h4>
+    <div [ngStyle]="{'background-color':false?'yellow':'green'}">Product Details:</div>
+</div>
+
+<div class="container">
+    <button (click)="addNewProduct()" [ngClass]="['btn','btn-success','btn-sm','mt-2','mb-2']">Add Product</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Country</th>
+                <th>Product Price</th>
+                <th>Product Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="prodList.length>0;else elsepart">
+            <tr *ngFor="let prod of prodList; let i = index" [ngStyle]="{'color':getColor(prod.productCountry)}">
+                <td>{{prod.productId}}</td>
+                <td>{{prod.productName}}</td>
+                <td>{{prod.productCountry}}</td>
+                <td>{{prod.productPrice}}</td>
+                <td>{{prod.date | date:'dd-MMM-yyyy'}}</td>
+                <td><button class="btn btn-danger btn-sm" (click)="deleteProduct(prod.productId)">Delete</button></td>
+            </tr>
+        </tbody>
+        <tr>
+            <ng-template #elsepart>No record found.</ng-template>
+        </tr>
+        <!-- <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Country</td>
+        </tr>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Country</td>
+        </tr> -->
+    </table>
+</div>
+
+<br>
+
+<button (click)="toggleDisplay()">Toggle Display</button>
+
+<button [disabled]="!fillProductDisabled" (click)="clearProductList()">Clear Product List</button>
+<button [disabled]="fillProductDisabled" (click)="fillProductList()">Fill Product List</button>
+
+<!-- Custom Multiplier -->
+
+<div appColorInputDirective abc="green">
+   <p> Value:{{ 10 | multiplier:16}} </p>
+</div>
+
+<!-- <input type="text" [(ngModel)]="first">
+<input type="text" [(ngModel)]="second"> -->

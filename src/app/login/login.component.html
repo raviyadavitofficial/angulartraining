@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <form class="mt-4">
+                <h2>Login Form</h2>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="username" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="button" (click)="onLogin()" class="btn btn-primary btn-sm mt-2">Login</button>
+              </form>
+        </div>
+    </div>
+</div>

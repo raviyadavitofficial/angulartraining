@@ -1,0 +1,39 @@
+Lowercase Example
+<div>
+    The City is {{city | lowercase}}<br>
+</div>
+
+-----------------------------------------<br>
+
+Upercase Example
+<div>
+    The City is {{city | uppercase}}<br>
+</div>
+
+-----------------------------------------<br>
+
+Slice Example
+<div>
+    {{text | slice:0:18}}<br>
+    {{text | slice:9:19}}<br>
+</div>
+
+----------------------------------------<br>
+
+Date Example
+<div>
+    <br> Without filter: Today date is  {{todayDate}}
+
+    <br> With filter: Today date is {{todayDate | date:'dd-MMM-yyyy'}} (date:'dd-MMM-yyyy')
+    <br> With filter: Today date is {{todayDate | date:'dd-MM-yy'}} ( date:'dd-MM-yy')
+
+    <br> Long date: Today date is {{todayDate | date:'longDate'}} (date:'longDate')
+    <br> Short date: Today date is {{todayDate | date:'short'}} (date:'short')
+
+    <br> With time: Today date is {{todayDate | date:'MM/dd/yyyy@h:mma'}} (date:'MM/dd/yyyy@h:mma')
+    <br> only time: Today date is {{todayDate | date:'h:mm:ssa'}} (date:'h:mm:ssa')
+
+    <br> Year is: {{todayDate | date:'yyyy'}} (date:'yyyy')
+    <br> Month is: {{todayDate | date:'MMM'}} (date:'MMM')
+    <br> Date is: {{todayDate | date:'dd'}} (date:'dd')
+</div>

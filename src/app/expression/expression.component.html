@@ -1,0 +1,27 @@
+<div>
+    <h1>Data binding in Angular</h1>
+    <div>
+        <h3>Interpolation Example:</h3> Hello {{name}}
+    </div>
+
+    <div>
+        <h3>One way binding Example</h3>
+        Hello <span [innerText]="name"></span><br>
+        Hello <span [innerHTML]="name"></span><br>
+        <input type="text" [value]="name">
+    </div>
+
+    <div>
+        <h3>Two way binding Example</h3>
+        <input type="text" [(ngModel)]="name">
+        <br>
+        <span>Welcome {{name}}</span>
+    </div>
+
+    <div>
+        <h3>Event binding Example</h3>
+        <button (click)="onClickMe(name)">Click me!</button>
+        <br>
+        <span>{{messageText}}</span>
+    </div>
+</div>
